@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kent Barter - Personal Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font stack to mimic the classic academic look */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+        }
+        /* Style for main headings (h2, h3) - dark, clear separators */
+        .section-heading {
+            border-bottom: 2px solid #D1D5DB; /* Light gray separator */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-family: Inter, sans-serif; /* Use sans-serif for headings for clarity */
+            font-weight: 700;
+            color: #1F2937; /* Darker text */
+        }
+        /* Academic link style (like the Changhai site) */
+        .academic-link {
+            color: #B91C1C; /* A deep blue for links */
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .academic-link:hover {
+            color: #01145f; /* Brighter blue on hover */
+            text-decoration: underline;
+        }
+        /* Fixed-width container for desktop view */
+        .page-container {
+            max-width: 1200px;
+        }
+        /* Styling for the fixed top navigation */
+        #top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        /* Hide content areas initially, JS will control their visibility */
+        .page-content {
+            display: none;
+        }
+        /* Ensure the first page displays by default */
+        #about.page-content {
+            display: block;
+        }
+        /* Timeline styling for Work/Education */
+        .timeline-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+            width: 8px;
+            height: 8px;
+            background: #01145f; /* blue dot */
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 3.5px;
+            top: 1rem;
+            bottom: -0.5rem;
+            width: 1px;
+            background: #D1D5DB; /* Light gray line */
+            z-index: 5;
+        }
+        .timeline-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1F2937;
+        }
+        .timeline-date {
+            font-size: 0.875rem; /* sm */
+            color: #6B7280; /* gray-500 */
+            margin-top: 0.1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <div class="page-container mx-auto p-4 md:p-8">
+
+        <!-- Header / Name and Title Section -->
+        <header class="mb-4 pt-4 border-b border-blue-700 pb-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-700 font-serif">Kent Barter</h1>
+            <p class="text-xl text-gray-700 mt-2">Software Developper</p>
+            <p class="text-lg text-gray-500">Newfoundland and Labrador</p>
+        </header>
+
+        <!-- Top Horizontal Navigation Bar (Sticky) -->
+        <nav id="top-nav" class="bg-blue-700 shadow-lg rounded-t-lg mb-8 md:p-0 p-1">
+            <ul class="flex flex-col md:flex-row justify-start text-white text-base font-semibold divide-y divide-blue-600 md:divide-y-0" id="nav-links">
+                <li class="p-3 hover:bg-blue-600 transition duration-150">
+                    <!-- data-target attribute indicates which section to show -->
+                    <a href="about.html" data-target="about" class="block w-full h-full nav-link active-link">About Me</a>
+                </li>
+                <li class="p-3 hover:bg-blue-600 transition duration-150">
+                    <a href="projects.html" data-target="projects" class="block w-full h-full nav-link">Personal Projects</a>
+                </li>
+                <li class="p-3 hover:bg-blue-600 transition duration-150">
+                    <a href="contectInformation.html" data-target="contact" class="block w-full h-full nav-link">Contact Information</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Layout (Sidebar + Content) -->
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- Main Content Area (Right Column) - Dynamically Switched Content -->
+            <main class="flex-1 space-y-8 bg-white p-6 md:p-8 shadow-xl rounded-xl border border-gray-200">
+
+                <!-- 1. About Me Section (Default Visible) -->
+                <section id="about" class="page-content">
+                    <h3 class="text-xl font-bold mt-6 mb-4 text-blue-700 border-b border-gray-200 pb-2">About Me</h3>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        I am a Software Developer from Newfoundland and Labrador currently working on new interactive software, AI powered solutions and making cool projects for my GitHub.  I have hands on experience in developing and integrating AI, ML and Computer Vision based software with a focus on modern app development.
+                    </p>
+                    
+                    <!-- 1.1 Work Experience Sub-section -->
+                    <h3 class="text-xl font-bold mt-6 mb-4 text-blue-700 border-b border-gray-200 pb-2">Work Experience</h3>
+                    <div class="space-y-4 relative">
+                        <!-- Timeline for Experience -->
+                        <div class="timeline-item">
+                            <p class="timeline-header">AI Vision</p>
+                            <p class="timeline-date">November 2022 – April 2025</p>
+                            <p class="text-gray-600 text-sm">Graduated from the Genesis Evolution program and enrolled in Bounce Health as a partner company company to evaluate the clinical use of a new AI software.  This uses cutting edge Computer Vision and AI based technology to solve the problem of undiagnosed retinal disease through the AI based computer vision analysis of retinal imaging data to be used both in the clinical and research setting.</p>
+                            <p3>AI, ML, Computer Vision, Data Science</p3>
+                        </div>
+                    </div>
+
+                    <!-- 1.2 Education Sub-section -->
+                    <h3 class="text-xl font-bold mt-6 mb-4 text-blue-700 border-b border-gray-200 pb-2">Education</h3>
+                    <div class="space-y-4 relative">
+                        <div class="timeline-item">
+                            <p class="timeline-header">B.Sc. in Computer Science</p>
+                            <p class="timeline-date">September 2016 – June 2021</p>
+                            <p class="text-gray-600 text-sm">Memorial University of Newfoundland, St. John's, NL</p>
+                            <p class="text-gray-600 text-sm">Course Work: AI, ML, Data Science, Computer Vision, 3D Graphics and App development.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1.3 Volunteering Sub-section -->
+                    <h3 class="text-xl font-bold mt-6 mb-4 text-blue-700 border-b border-gray-200 pb-2">Volunteering</h3>
+                    <div class="space-y-4 relative">
+                        <div class="timeline-item">
+                            <p class="timeline-header">Computer Science Society</p>
+                            <p class="timeline-date">September 2016 – June 2021</p>
+                            <p class="text-gray-600 text-sm">Memorial University of Newfoundland, St. John's, Newfoundland and Labrador</p>
+                            <p class="text-gray-600 text-sm">I held various roles as a leading member of Memorial Universities Computer Science Society including both the development and integration of new technologies and the management of an active student society group which include community engagement such as programming challenges, project competitions and other events.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="timeline-header">Let’s Talk Science</p>
+                            <p class="timeline-date">September 2020 – June 2021</p>
+                            <p class="text-gray-600 text-sm">Memorial University of Newfoundland, St. John's, Newfoundland and Labrador</p>
+                            <p class="text-gray-600 text-sm">I directed tutorial sections as an instructor with the Let’s Talk Science program teaching the field of Computer Science to the next generation of high school students.  These lessons included both active programming examples and an introduction to the logic of computing systems.</p>
+                        </div>
+                    </div>
+
+                </section>
+                
+                <!-- 2. Projects Section -->
+                <section id="projects" class="page-content">
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold mt-6 mb-4 text-blue-700 border-b border-gray-200 pb-2">Open Source Projects</h3>
+                        <div class="space-y-6">
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">Personal Website (HTML)</p>
+                                <p class="text-gray-600 text-sm">A personal website made with HTML and hosted live on GitHub.io, showing of my personal and work experience.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>Web Development</p3>
+                                </p>
+                            </div>
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">Newfoundland-trails (Dart, Flutter, Firebase)</p>
+                                <p class="text-gray-600 text-sm">This project makes use of the Dart programming language and Flutter its app package to implement an novel IOS and Android compatible app to allow users to explore the trails of Newfoundland and record their experiences all powered by a Firebase to create a user friendly platform.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>App Development, Cloud Technologies</p3>
+                                </p>
+                            </div>
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">Finance-tracker (Dart, Flutter, Firebase)</p>
+                                <p class="text-gray-600 text-sm">This project makes use of the Dart programming language and Flutter its app package to implement a novel IOS and Android compatible app to allow users to track their finances including their income, expenses and savings goals with a unique user interface all powered by a Firebase to create a user-friendly platform.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>App Development, Cloud Technologies</p3>
+                                </p>
+                            </div>
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">NewfoundEvents (Dart, Flutter, Firebase)</p>
+                                <p class="text-gray-600 text-sm">This project makes use of the Dart programming language and Flutter its app package to implement a novel IOS and Android compatible app to allow users to track upcoming Newfoundland events, powered by a Firebase backend to create a user-friendly platform.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>App Development, Cloud Technologies</p3>
+                                </p>
+                            </div>
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">Housing-Web-Scrapper (Python, BeautifulSoup)</p>
+                                <p class="text-gray-600 text-sm">This Is a Python based web scrapper used to build a unique and up to date database of Newfoundland housing data.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>Data Science, Database Building</p3>
+                                </p>
+                            </div>
+
+                            <div class="border-b pb-4">
+                                <p class="font-bold text-gray-800 text-lg">Kattis-Problems (Python)</p>
+                                <p class="text-gray-600 text-sm">This project is a selection of completed competitive programing problems mostly from Kattis.</p>
+                                <p class="text-xs mt-1 space-x-3">
+                                <p3>Competitive Programing</p3>
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <a href="https://github.com/KentBarter" target="_blank" class="academic-link font-bold text-base block pt-4">View All Publications on Github»</a>
+                    </div>
+                </section>
+
+                <!-- 3. Contact Section -->
+                <section id="contact" class="page-content">
+                    <h3 class="font-semibold text-xl mt-4 mb-2 text-blue-700"> Current Contact Information</h3>               
+                    <p class="text-gray-700 mb-4"> For professional inquiries or more information regarding my personal projects or professional work please send me an email at krbarter [at] mun.ca.</p>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- JavaScript for SPA Simulation (Kept in English comments for clarity) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.page-content');
+            
+            // Function to show the selected content and hide others
+            const showContent = (targetId) => {
+                contentSections.forEach(section => {
+                    // Show only the targeted section
+                    if (section.id === targetId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+
+                // Update active link styling
+                navLinks.forEach(link => {
+                    // Highlight the currently active link
+                    if (link.dataset.target === targetId) {
+                        link.parentElement.classList.add('bg-blue-600');
+                    } else {
+                        link.parentElement.classList.remove('bg-blue-600');
+                    }
+                });
+
+                // Scroll to the top of the main content area for a "new page" feel
+                const mainContent = document.querySelector('main');
+                if (mainContent) {
+                    mainContent.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+
+            // Event listeners for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Prevent default navigation (to avoid actual page reload)
+                    e.preventDefault(); 
+                    
+                    const targetId = link.dataset.target;
+                    if (targetId) {
+                        // Use the URL hash to allow bookmarking/back button support
+                        window.location.hash = targetId;
+                        showContent(targetId);
+                    }
+                });
+            });
+
+            // Handle URL hash changes (e.g., if user uses back/forward buttons or accesses a direct link)
+            window.addEventListener('hashchange', () => {
+                const newHash = window.location.hash.substring(1);
+                if (newHash && document.getElementById(newHash)) {
+                    showContent(newHash);
+                } else {
+                    // Fallback to 'about' if hash is cleablue or invalid
+                    showContent('about');
+                }
+            });
+
+            // Handle initial load (check for hash in URL)
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash && document.getElementById(initialHash)) {
+                showContent(initialHash);
+            } else {
+                // Default to 'about' if no hash is present
+                showContent('about');
+            }
+        });
+    </script>
+
+</body>
+</html>
